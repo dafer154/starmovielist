@@ -8,7 +8,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 
 /* File routing */
-
 import { AppRoutingModule } from './app-routing.module';
 
 /*Services */

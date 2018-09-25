@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {API_KEY} from '../../app.key';
+import { Observable } from 'rxjs';
 import {Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
 
 
 @Injectable({
@@ -10,9 +10,6 @@ import 'rxjs/add/operator/mergeMap';
 })
 export class HomeService {
 
-  /*Array movies */
-
-  principalMovies = [];
   /*Api key david*/
   apiKey: string = API_KEY;
   /*End point more popular series and movies in the week */
@@ -21,9 +18,10 @@ export class HomeService {
 
   constructor(private http: Http) { }
 
-  trendingTopicWeek(): Promise<any[]> {
-    return this.http.get(`${this.baseURL}api_key=${this.apiKey}`).map(res =>{
-      this.principalMovies = res.json();
-      console.log(this.principalMovies);
-    })
-}
+  trendingTopicWeek(): Observable<any> {
+    return this.http.get(`${this.baseURL}api_key=${this.apiKey}`)
+      .map(response => {
+			return response.json().results; 
+		})
+  };
+

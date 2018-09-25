@@ -1,3 +1,57 @@
-<p>
-  home works!
-</p>
+<div class="wrapper">
+  <div class="wrapper-movie" *ngFor="let movie of trendingTopicMovies">
+    <div class="wrap-image">
+      <img class="image-card" src="{{getImgUrl(movie.poster_path)}}">
+    </div>
+    <div class="wrap-desc">
+      <div>
+        <div>
+          <i class="fa fa-star"></i><span>{{movie.vote_average}}</span>
+          <hr>
+        </div>
+        <h2>
+          {{movie.title}}
+        </h2>
+      </div>
+      <p class="description">
+        {{movie.overview}}
+      </p>
+      <button>prueba</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .wrapper-movie {
+    flex: 1 0 500px;
+    box-sizing: border-box;
+    margin: 1rem .25em;
+    display: flex;
+    padding: 2%;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 4%;
+  }
+
+  .image-card {
+    /*width: 0%;*/
+  }
+
+  .wrap-image {
+    /*width: 0%;*/
+  }
+
+  .wrap-desc {
+    padding-left: 2%;
+  }
+
+  .wrap-desc:hover{
+    background: black;
+    color: white;
+  }
+
+</style>
