@@ -24,4 +24,3 @@ export class HomeService {
 			return response.json().results; 
 		})
   };
-

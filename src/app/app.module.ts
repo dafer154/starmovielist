@@ -12,13 +12,19 @@ import { AppRoutingModule } from './app-routing.module';
 
 /*Services */
 import { HomeService } from './pages/home/home.service';
+import { SearchComponent } from './shared/search/search.component';
+import { ActorsComponent } from './pages/actors/actors.component';
+import { MoviesComponent } from './pages/movies/movies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent,
+    ActorsComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,24 +1,16 @@
+<h1 style="text-align: center; padding-top: 4%;">Trendings Movies</h1>
+
 <div class="wrapper">
-  <div class="wrapper-movie" *ngFor="let movie of trendingTopicMovies">
-    <div class="wrap-image">
-      <img class="image-card" src="{{getImgUrl(movie.poster_path)}}">
+
+    <div class="card" *ngFor="let movie of trendingTopicMovies">
+        <a href="#">
+          <div class="img1"  [ngStyle]="{ 'background-image': 'url(' + getImgUrl(movie.poster_path) + ')'}"></div>
+        
+          <div class="title">{{movie.title}}</div>
+          <a href="#"><div class="catagory">Series <i        class="fas fa-film"></i></div></a>
+          <a href="#"><div class="views">{{movie.vote_average}}<i class="fa fa-star"></i> </div></a>
+        </a>
     </div>
-    <div class="wrap-desc">
-      <div>
-        <div>
-          <i class="fa fa-star"></i><span>{{movie.vote_average}}</span>
-          <hr>
-        </div>
-        <h2>
-          {{movie.title}}
-        </h2>
-      </div>
-      <p class="description">
-        {{movie.overview}}
-      </p>
-      <button>prueba</button>
-    </div>
-  </div>
 </div>
 
 <style>
@@ -34,7 +26,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 4%;
+    padding: 3%;
   }
 
   .image-card {
