@@ -76,16 +76,15 @@
 /* prueba header */
 
 .header {
-    background: url(/assets/images/camara.jpg) no-repeat;
+    background: url(/assets/images/hollywood.jpg) no-repeat;
     background-position: center center;
     background-repeat:  no-repeat;
-    background-attachment: fixed;
     background-size:  cover;
     background-color: #999;
     text-align: center;
     position: relative;
     z-index: 1;
-    padding: 70px 0px 99px;
+    padding: 79px 0px 250px;
 }
 
 .header .logo img {
@@ -101,29 +100,13 @@ img {
 }
 
 
-.intro h1{
-	font-size: 60px;
-	line-height: 80px;
-	margin-bottom: 16px;
+.title1{
 	color: #52b3d9;
 }
-.intro h1 span{
+.title2{
 	color: #68c3a3;
 }
-.intro p{
-	color: #f7f7f7;
-	margin-bottom: 40px;
-}
 
-.intro-sub {
-	color: #fff;
-	font-size: 24px;
-	line-height: 32px;
-	font-weight: 700;
-	text-transform: uppercase;
-	display: block;
-	margin-bottom: 20px;
-}
 
 /*
 SOCIAL ICON
@@ -171,4 +154,22 @@ SOCIAL ICON
     background: #68c3a3;
     border: 1px solid transparent;
     z-index: 0;
+}
+
+
+/*Nabvar right*/
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.nav-link {
+  padding-right: .5rem !important;
+  padding-left: .5rem !important;
+}
+
+/* Fixes dropdown menus placed on the right side */
+.ml-auto .dropdown-menu {
+  left: auto !important;
+  right: 0px;
 }

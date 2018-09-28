@@ -9,7 +9,7 @@
 	</div>	
 </div>
 
-<div>
+<div *ngIf="viewResults" id="search-results">
 	<div *ngFor="let match of movies">
 		<a>
 			<div class="results-content">
@@ -21,8 +21,5 @@
 				</i>
 			</div>
 		</a>
-	</div>
-	<div class="total-results">
-		<strong>Total results: </strong>{{totalResult}}	
 	</div>
 </div>

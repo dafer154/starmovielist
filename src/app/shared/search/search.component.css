@@ -9,13 +9,13 @@
     width: 100%;
 }
 #search-results{
-	width: 76%; 
-	background-color: #ffffff; 
-	position: absolute; 
-	margin-top: -17px; 
-	z-index: 100; 
-	border: 1px solid #dddddd; 
-	margin-left: 11%;
+	width: 74%;
+    background-color: #ffffff;
+    position: absolute;
+    margin-top: 8px;
+    z-index: 100;
+    border: 1px solid #dddddd;
+    margin-left: 11%;
 
 }
 .results-content{

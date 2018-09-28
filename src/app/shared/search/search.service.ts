@@ -24,7 +24,6 @@ export class SearchService {
     return this.http.get(`${this.baseURL}${movieUrl}api_key=${this.apiKey}&query=${query}&page=1`)
       .map(response => {
         return response.json().results;
-    })
-    .catch(this.handleError);
+    });
   }
 }

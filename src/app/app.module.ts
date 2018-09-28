@@ -20,6 +20,7 @@ import { SearchService } from './shared/search/search.service';
 /*Helpers */
 
 import { AppHelperService } from './app.helper';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AppHelperService } from './app.helper';
     HomeComponent,
     SearchComponent,
     ActorsComponent,
-    MoviesComponent
+    MoviesComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

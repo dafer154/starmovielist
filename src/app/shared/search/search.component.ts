@@ -10,9 +10,10 @@ import { Observable } from 'rxjs/Observable';
 export class SearchComponent implements OnInit {
 
 
-  movies: Observable<any>;
-
+  movies: Object[] = [];
   totalResult: number = 0;
+  viewResults: boolean = false;
+  query: string = '';
 
   constructor(private searchService: SearchService) {}
 
@@ -24,15 +25,18 @@ export class SearchComponent implements OnInit {
    * @param $event
    */
 
-searchMovies($event){
+searchMovies($event) {
   const query = $event.target.value;
-    this.movies = this.searchService.searchMovie(query).subscribe(response => {
+    this.searchService.searchMovie(query).subscribe(response => {
     this.movies = response;
     this.totalResult = response.length;
+    if (this.totalResult !== 0) {
+      this.viewResults = true;
+    }
     console.log(this.totalResult);
     console.log(this.movies);
-  }
-};
+  });
+}
 
 
 getImgUrl(src: string): string {
@@ -48,15 +52,7 @@ getImgUrl(src: string): string {
 cleanInput() {
   this.movies = [];
   this.totalResult = 0;
+  this.viewResults = false;
 }
 
-/**
-* Check it list is empty
-* @param {list} list to be checked
-* @return boolean value of empty state
-**/
-
-
-  isEmpty(list) {
-    return this.appHelper.isEmpty(list);
-  }
+}

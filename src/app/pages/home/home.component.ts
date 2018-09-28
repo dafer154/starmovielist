@@ -10,18 +10,17 @@ export class HomeComponent implements OnInit {
 
   trendingTopicMovies = [];
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService) {}
 
   ngOnInit() {
     this.getTrendingWeek();
-    this.getImgUrl();
   }
 
   getTrendingWeek() {
     this.homeService.trendingTopicWeek().subscribe(response => {
       this.trendingTopicMovies = response;
       console.log(this.trendingTopicMovies);
-    }
+    });
   }
 
   getImgUrl(src: string): string {
