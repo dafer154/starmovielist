@@ -21,6 +21,6 @@ export class HomeService {
   trendingTopicWeek(): Observable<any> {
     return this.http.get(`${this.baseURL}api_key=${this.apiKey}`)
       .map(response => {
-			return response.json().results; 
-		})
-  };
+      return response.json().results; });
+    }
+}

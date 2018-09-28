@@ -15,6 +15,11 @@ import { HomeService } from './pages/home/home.service';
 import { SearchComponent } from './shared/search/search.component';
 import { ActorsComponent } from './pages/actors/actors.component';
 import { MoviesComponent } from './pages/movies/movies.component';
+import { SearchService } from './shared/search/search.service';
+
+/*Helpers */
+
+import { AppHelperService } from './app.helper';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,7 @@ import { MoviesComponent } from './pages/movies/movies.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [HomeService],
+  providers: [HomeService, SearchService, AppHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
