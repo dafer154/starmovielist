@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-md-12">
+	    <div class="input-group m-b-20" id="search-group">
+			<input (keyup)="searchMovies($event)" class="form-control" placeholder="Search movie by name...">
+	        <div class="input-group-btn">
+                <button type="button" class="btn btn-inverse" (click)="cleanInput()" ><i class="fa fa-times"></i></button>
+            </div>
+	    </div>
+	</div>	
+</div>
+
+<div *ngIf="viewResults" id="search-results">
+	<div *ngFor="let match of movies">
+		<a>
+			<div class="results-content">
+				<img class="image-result" src="{{getImgUrl(match.backdrop_path)}}" /> 
+				<strong class="result-name">{{ match.original_title }}</strong>
+				<br/>
+				<i class="known-for">
+					<b>Known for:</b> {{ match.original_title }}b
+				</i>
+			</div>
+		</a>
+	</div>
+</div>
