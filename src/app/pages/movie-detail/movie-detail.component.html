@@ -1,0 +1,113 @@
+<div class="container">
+  <br>
+
+  <div *ngIf="resultDetailMovie" class="row">
+    <div class="col-sm-4">
+      <img *ngIf='resultDetailMovie.poster_path' class="img-fluid" src="{{getImgUrl(resultDetailMovie.poster_path)}}" />
+      <div *ngIf='resultDetailMovie.release_date'><label>Release Date: </label>{{resultDetailMovie.release_date}}</div>
+      <div *ngIf='resultDetailMovie.genres'><label>Genres: </label><span *ngFor="let genre of resultDetailMovie.genres; let isLast=last">{{genre.name}}{{isLast
+          ? '' : ', '}}</span></div>
+      <div *ngIf='resultDetailMovie.budget'><label>Budget: </label>{{resultDetailMovie.budget | currency:'USD':true:'4.0-2'}}</div>
+      <div *ngIf='resultDetailMovie.revenue'><label>Box office: </label>{{resultDetailMovie.revenue | currency:'USD':true:'4.0-2'}}</div>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-10">
+          <h2>{{resultDetailMovie.title}} ({{resultDetailMovie.release_date | date: 'yyyy'}})</h2>
+        </div>
+        <div class="col-sm-2">
+          <h3 style="text-align:right;">{{resultDetailMovie.vote_average}} <i class="fa fa-star" aria-hidden="true"></i></h3>
+        </div>
+      </div>
+
+      <span class="right"> </span><span class="left"></span>
+
+
+      <br>
+      <p>{{resultDetailMovie.overview}}</p>
+
+      <div class="text-center">
+        <iframe width="560" height="315" [src]="getMovieVideoUrl(movie.key) | safe" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <h5 *ngIf="!movie" class="empty-msn">This movie doesn't have Trailer</h5>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="wrapper">
+    <div class="card-personality" *ngFor="let movie of recommendationsMovie | slice:0:8">
+      <a (click)="redirectToMovie(movie.id)">
+        <div class="img1" [ngStyle]="{ 'background-image': 'url(' + getImgUrl(movie.poster_path) + ')'}"></div>
+
+        <div class="title">{{movie.title}}</div>
+        <a href="#"><div class="catagory">Series <i class="fas fa-film"></i></div></a>
+        <a href="#"><div class="views">{{movie.vote_average}}<i class="fa fa-star"></i> </div></a>
+      </a>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="wrap-cards">
+  <div class="card" style="width: 18rem;" *ngFor="let actor of movieCredits | slice:0:10">
+    <img class="card-img-top" src="{{getImgUrl(actor.profile_path)}}" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="post-title">
+        <a [routerLink]="['/actor', actor.id]">{{actor.name}}</a>
+      </h4>
+      <div class="post-by">
+        <i class="fa fa-star"></i> {{actor.popularity}} <span class="divider"></span>
+      </div>
+      <div class="read-btn-container">
+        <a [routerLink]="['/actor', actor.id]">View details <i class="fa fa-angle-double-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  .wrap-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 6%;
+  }
+
+  .wrapper-movie {
+    flex: 1 0 500px;
+    box-sizing: border-box;
+    margin: 1rem .25em;
+    display: flex;
+    padding: 2%;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 3%;
+  }
+
+  .image-card {
+    /*width: 0%;*/
+  }
+
+  .wrap-image {
+    /*width: 0%;*/
+  }
+
+  .wrap-desc {
+    padding-left: 2%;
+  }
+
+  .wrap-desc:hover {
+    background: black;
+    color: white;
+  }
+</style>

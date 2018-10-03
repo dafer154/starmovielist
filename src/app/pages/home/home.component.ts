@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { HomeService } from './home.service';
+import { Component, OnInit } from "@angular/core";
+import { HomeService } from "./home.service";
+import { Router } from "@angular/router";
+import { AppHelperService } from "../../app.helper";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-
   trendingTopicMovies = [];
 
-  constructor(private homeService: HomeService) {}
+  constructor(
+    private router: Router,
+    private homeService: HomeService,
+    private appHelperService: AppHelperService
+  ) {}
 
   ngOnInit() {
     this.getTrendingWeek();
@@ -23,21 +28,15 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getImgUrl(src: string): string {
-    if (src != null) {
-      const url = `https://image.tmdb.org/t/p/w300${src}`;
-      return url;
-    } else {
-      const url = `./assets/images/question.jpg`;
-      return url;
-    }
+  redirectToMovie(id: number) {
+    this.router.navigate(['/movie', id]);
   }
 
-  getImagePath(path: string): string {
-    if (typeof path === 'undefined' || path === null) {
-      return 'assets/img/no-img.jpg';
-    } else {
-      return 'https://image.tmdb.org/t/p/w500' + path;
-    }
+  redirectToActor(id: number) {
+    this.router.navigate(['/actor', id]);
+  }
+
+  getImgUrl(src: string): string {
+    return this.appHelperService.getImgUrl(src);
   }
 }

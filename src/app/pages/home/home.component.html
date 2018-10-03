@@ -2,15 +2,15 @@
 
 <div class="wrapper">
 
-    <div class="card" *ngFor="let movie of trendingTopicMovies">
-        <a href="#">
-          <div class="img1"  [ngStyle]="{ 'background-image': 'url(' + getImgUrl(movie.poster_path) + ')'}"></div>
-        
-          <div class="title">{{movie.title}}</div>
-          <a href="#"><div class="catagory">Series <i        class="fas fa-film"></i></div></a>
-          <a href="#"><div class="views">{{movie.vote_average}}<i class="fa fa-star"></i> </div></a>
-        </a>
-    </div>
+  <div class="card" *ngFor="let movie of trendingTopicMovies">
+    <a (click)="redirectToMovie(movie.id)">
+      <div class="img1" [ngStyle]="{ 'background-image': 'url(' + getImgUrl(movie.poster_path) + ')'}"></div>
+
+      <div class="title">{{movie.title}}</div>
+      <a href="#"><div class="catagory">Series <i class="fas fa-film"></i></div></a>
+      <a href="#"><div class="views">{{movie.vote_average}}<i class="fa fa-star"></i> </div></a>
+    </a>
+  </div>
 </div>
 
 <style>
@@ -41,9 +41,8 @@
     padding-left: 2%;
   }
 
-  .wrap-desc:hover{
+  .wrap-desc:hover {
     background: black;
     color: white;
   }
-
 </style>

@@ -1,3 +1,25 @@
-<p>
-  actors works!
-</p>
+<div class="wrap-cards">
+  <div class="card" style="width: 18rem;" *ngFor="let actor of popularPeople">
+    <img class="card-img-top" src="{{getImgUrl(actor.profile_path)}}" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="post-title">
+        <a [routerLink]="['/actor', actor.id]">{{actor.name}}</a>
+      </h4>
+      <div class="post-by">
+        <i class="fa fa-star"></i> {{actor.popularity}} <span class="divider"> | </span> <i class="fa fa-film" style="padding-right: 2%;"></i>{{moviesParticipated(actor.known_for)}}
+      </div>
+      <div class="read-btn-container">
+        <a [routerLink]="['/actor', actor.id]">View details <i class="fa fa-angle-double-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .wrap-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 6%;
+  }
+</style>

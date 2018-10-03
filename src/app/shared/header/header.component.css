@@ -1,161 +1,166 @@
-
-
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /* Header Menu Area css
 ============================================================================================ */
 .header_area {
-    background: #fec608;
-  }
-  
-  .header_area .navbar.navbar-default {
-    border: none;
-    border-radius: 0px;
-    background: transparent;
-    margin: 0px;
-  }
-  
-  .header_area .navbar.navbar-default .navbar-header .navbar-brand {
-    padding: 0;
-    display: block;
-    vertical-align: middle;
-    line-height: 76px;
-  }
-  
-  .header_area .navbar.navbar-default .navbar-header .navbar-brand img {
-    display: inline-block;
-  }
-  
-  .header_area .navbar.navbar-default .navbar-collapse .nav.navbar-nav li {
-    margin-right: 40px;
-  }
-  
-  .header_area .navbar.navbar-default .navbar-collapse .nav.navbar-nav li a {
-    padding: 0px;
-    background: transparent;
-    line-height: 80px;
-    font-family: "Raleway", sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #222222;
-    display: inline-block;
-    transition: all 400ms linear 0s;
-  }
-  
-  .header_area .navbar.navbar-default .navbar-collapse .nav.navbar-nav li:hover a, .header_area .navbar.navbar-default .navbar-collapse .nav.navbar-nav li.active a {
-    color: #fff;
-  }
-  
-  .header_area .navbar.navbar-default .navbar-collapse .nav.navbar-nav li:last-child {
-    margin-right: 0px;
-  }
-  
-  .header_area.stricky-fixed {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    left: 0;
-    z-index: 9999;
-  }
-  
-  .header_area.stricky-fixed + section, .header_area.stricky-fixed + div, .header_area.stricky-fixed + .row {
-    margin-top: 80px;
-  }
-  
-  /* End Header Menu Area css
-  ============================================================================================ */
-  /*---------------------------------------------------- */
-  /*----------------------------------------------------*/
-
-
-.image-logo{
-    margin-top: -30%;
+  background: #fec608;
 }
 
+.header_area .navbar.navbar-default {
+  border: none;
+  border-radius: 0px;
+  background: transparent;
+  margin: 0px;
+}
+
+.header_area .navbar.navbar-default .navbar-header .navbar-brand {
+  padding: 0;
+  display: block;
+  vertical-align: middle;
+  line-height: 76px;
+}
+
+.header_area .navbar.navbar-default .navbar-header .navbar-brand img {
+  display: inline-block;
+}
+
+.header_area .navbar.navbar-default .navbar-collapse .nav.navbar-nav li {
+  margin-right: 40px;
+}
+
+.header_area .navbar.navbar-default .navbar-collapse .nav.navbar-nav li a {
+  padding: 0px;
+  background: transparent;
+  line-height: 80px;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #222222;
+  display: inline-block;
+  transition: all 400ms linear 0s;
+}
+
+.header_area .navbar.navbar-default .navbar-collapse .nav.navbar-nav li:hover a,
+.header_area
+  .navbar.navbar-default
+  .navbar-collapse
+  .nav.navbar-nav
+  li.active
+  a {
+  color: #fff;
+}
+
+.header_area
+  .navbar.navbar-default
+  .navbar-collapse
+  .nav.navbar-nav
+  li:last-child {
+  margin-right: 0px;
+}
+
+.header_area.stricky-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 9999;
+}
+
+.header_area.stricky-fixed + section,
+.header_area.stricky-fixed + div,
+.header_area.stricky-fixed + .row {
+  margin-top: 80px;
+}
+
+/* End Header Menu Area css
+  ============================================================================================ */
+/*---------------------------------------------------- */
+/*----------------------------------------------------*/
+
+.image-logo {
+  margin-top: -30%;
+}
 
 /* prueba header */
 
 .header {
-    background: url(/assets/images/hollywood.jpg) no-repeat;
-    background-position: center center;
-    background-repeat:  no-repeat;
-    background-size:  cover;
-    background-color: #999;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    padding: 79px 0px 250px;
+  background: url(/assets/images/hollywood.jpg) no-repeat;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #999;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 79px 0px 250px;
 }
 
 .header .logo img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 img {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 img {
-    border: 0;
+  border: 0;
 }
 
-
-.title1{
-	color: #52b3d9;
+.title1 {
+  color: #52b3d9;
 }
-.title2{
-	color: #68c3a3;
+.title2 {
+  color: #68c3a3;
 }
-
 
 /*
 SOCIAL ICON
 -------------------------------------------*/
 .social-icons {
-    margin-top: 20px;
+  margin-top: 20px;
 }
-.social-icons a i{
-    position: relative;
-    color: #fff;
-    font-size: 18px;
-    margin: 0 7px;
-    line-height: 40px;
-    text-align: center;
-    width: 40px;
-    height: 40px;
+.social-icons a i {
+  position: relative;
+  color: #fff;
+  font-size: 18px;
+  margin: 0 7px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
 }
 
 .social-icons a i::before {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .social-icons a i::after {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #fff;
-    border-radius: 3px;
-    -webkit-transform: rotate(45deg);
-       -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-         -o-transform: rotate(45deg);
-            transform: rotate(45deg);
-    -webkit-transition: all 300ms;
-       -moz-transition: all 300ms;
-         -o-transition: all 300ms;
-            transition: all 300ms;
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  -o-transition: all 300ms;
+  transition: all 300ms;
 }
 
-.social-icons a i:hover::after{
-    background: #68c3a3;
-    border: 1px solid transparent;
-    z-index: 0;
+.social-icons a i:hover::after {
+  background: #68c3a3;
+  border: 1px solid transparent;
+  z-index: 0;
 }
-
 
 /*Nabvar right*/
 
@@ -164,8 +169,8 @@ SOCIAL ICON
 }
 
 .nav-link {
-  padding-right: .5rem !important;
-  padding-left: .5rem !important;
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
 }
 
 /* Fixes dropdown menus placed on the right side */

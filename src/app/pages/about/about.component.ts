@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-
   information: any = {
     name: 'David Fernando Zuluaga',
     age: '26',
@@ -15,9 +14,7 @@ export class AboutComponent implements OnInit {
     email: 'zuluaaristi@gamil.com'
   };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
