@@ -27,7 +27,7 @@ export class ActorsComponent implements OnInit {
     });
   }
 
-  moviesParticipated(movies: []) {
+  moviesParticipated(movies: any) {
     let listMovies  = '';
     for ( let i = 0; i < movies.length; i++) {
       listMovies += movies[i].original_title + ', ';

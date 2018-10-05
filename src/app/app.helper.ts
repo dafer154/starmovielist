@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import {GenresMovies} from './classes/genres';
 
 @Injectable()
 export class AppHelperService {
@@ -24,5 +25,14 @@ export class AppHelperService {
       const url = `./assets/images/question.jpg`;
       return url;
     }
+  }
+
+  genresMovie(genre: any) {
+    let listGeneres  = '';
+
+    for (let id of genre) {
+      listGeneres += GenresMovies[id] + ' | ';
+    }
+    return listGeneres;
   }
 }

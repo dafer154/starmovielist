@@ -79,7 +79,7 @@ a {
 
 .card .catagory {
   position: absolute;
-  left: 10px;
+  left: 0px;
   top: 10px;
   padding: 3px 10px;
   font-size: 15px;
@@ -88,7 +88,8 @@ a {
   background: #2a264f;
   color: #fff;
   border-radius: 5px;
-  transform: translate(-160px, 0);
+  -webkit-transform: translate(-160px, 0);
+  transform: translate(-281px, 0);
   transition: all 0.5s ease;
 }
 

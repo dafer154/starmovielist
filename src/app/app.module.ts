@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -47,7 +49,8 @@ import {SafePipe} from './pipes/safe.pipe';
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [HomeService, SearchService, AppHelperService],
   bootstrap: [AppComponent]

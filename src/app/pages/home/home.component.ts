@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HomeService } from "./home.service";
 import { Router } from "@angular/router";
 import { AppHelperService } from "../../app.helper";
+import { Movie } from '../../classes/movie';
 
 @Component({
   selector: "app-home",
@@ -9,7 +10,8 @@ import { AppHelperService } from "../../app.helper";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  trendingTopicMovies = [];
+  
+  trendingTopicMovies: Movie[] = [];
 
   constructor(
     private router: Router,
@@ -38,5 +40,9 @@ export class HomeComponent implements OnInit {
 
   getImgUrl(src: string): string {
     return this.appHelperService.getImgUrl(src);
+  }
+
+  genresMovie(genre: any) {
+    return this.appHelperService.genresMovie(genre);
   }
 }

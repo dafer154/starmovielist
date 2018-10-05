@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs/Observable";
 import { Router, ActivatedRoute } from "@angular/router";
 import { MovieDetailService } from "./movie-detail.service";
 import { AppHelperService } from "../../app.helper";
+import { Movie } from '../../classes/movie';
 
 @Component({
   selector: "app-movie-detail",
@@ -11,9 +11,10 @@ import { AppHelperService } from "../../app.helper";
 })
 export class MovieDetailComponent implements OnInit {
   resultDetailMovie: any = {};
-  movie = [];
-  recommendationsMovie = [];
+  movie: Movie[] = [];
+  recommendationsMovie: Movie[] = [];
   movieCredits = [];
+  imagesMovie = [];
   constructor(
     private movieDetailService: MovieDetailService,
     private router: Router,
@@ -64,6 +65,12 @@ export class MovieDetailComponent implements OnInit {
           this.router.navigate(['/404']);
         }
       );
+      this.movieDetailService.getImages(id).subscribe(
+        response => {
+          this.imagesMovie = response.backdrops;
+          console.log(this.imagesMovie);
+        }
+      );
     });
   }
 
@@ -79,13 +86,12 @@ export class MovieDetailComponent implements OnInit {
     this.router.navigate(['/movie', id]);
   }
 
-  /*
-  obtainPrincipalCast(actors: [] ) {
-    const arrayPrincipal = [];
-    for (let i = 0; i < 10; i++) {
-      arrayPrincipal.push(actors[i]);
-    }
-    return arrayPrincipal;
+  redirectToActor(id: number) {
+    this.router.navigate(['/actor', id]);
   }
-*/
+
+  genresMovie(genre: any) {
+    return this.appHelperService.genresMovie(genre);
+  }
+
 }

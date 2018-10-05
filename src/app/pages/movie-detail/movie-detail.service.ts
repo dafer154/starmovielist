@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { API_KEY } from "../../app.key";
-import { Observable } from "rxjs";
-import { Http, Headers } from "@angular/http";
-import "rxjs/add/operator/map";
+import { Injectable } from '@angular/core';
+import { API_KEY } from '../../app.key';
+import { Observable } from 'rxjs';
+import { Http, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class MovieDetailService {
   /*Api key david*/
@@ -14,6 +14,7 @@ export class MovieDetailService {
   /*Endpoint for detail Movies */
 
   baseURL = 'https://api.themoviedb.org/3/movie';
+
 
   constructor(private http: Http) {}
 
@@ -47,6 +48,15 @@ export class MovieDetailService {
     const credits = '/credits';
     return this.http
       .get(`${this.baseURL}/${idMovie}${credits}?api_key=${this.apiKey}`)
+      .map(response => {
+        return response.json();
+      });
+  }
+
+  getImages(idMovie: string): Observable<any> {
+    const images = '/images';
+    return this.http
+      .get(`${this.baseURL}/${idMovie}${images}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
       });

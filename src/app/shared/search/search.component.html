@@ -11,7 +11,7 @@
 
 <div *ngIf="viewResults" id="search-results">
 	<div *ngFor="let match of movies">
-		<a>
+		<a (click)="redirectToMovie(match.id)">
 			<div class="results-content">
 				<img class="image-result" src="{{getImgUrl(match.backdrop_path)}}" />
 				<strong class="result-name">{{ match.original_title }}</strong>

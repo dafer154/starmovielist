@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SearchService } from "./search.service";
+import { Router, ActivatedRoute } from "@angular/router";
+import { AppHelperService } from "../../app.helper";
 
 @Component({
   selector: "app-search",
@@ -12,7 +14,10 @@ export class SearchComponent implements OnInit {
   viewResults: boolean = false;
   query: string = '';
 
-  constructor(private searchService: SearchService) {}
+  constructor(private searchService: SearchService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private appHelperService: AppHelperService) {}
 
   ngOnInit() {}
 
@@ -34,19 +39,19 @@ export class SearchComponent implements OnInit {
     });
   }
 
+
+
   getImgUrl(src: string): string {
-    if (src != null) {
-      const url = `https://image.tmdb.org/t/p/w300${src}`;
-      return url;
-    } else {
-      const url = `./assets/images/question.jpg`;
-      return url;
-    }
+    return this.appHelperService.getImgUrl(src);
   }
 
   cleanInput() {
     this.movies = [];
     this.totalResult = 0;
     this.viewResults = false;
+  }
+
+  redirectToMovie(id: number) {
+    this.router.navigate(['/movie', id]);
   }
 }
