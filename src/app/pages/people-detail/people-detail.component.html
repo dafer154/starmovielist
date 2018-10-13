@@ -27,3 +27,70 @@
       </div>
     </div>
   </div>
+
+  <h1 style="text-align: center">Images Actors</h1>
+
+  <div class="image-wrap">
+    <div *ngFor="let photos of imagesPerson" class="image-actor">
+        <img class="img-fluid" src="{{getImgUrl(photos.file_path)}}" />
+    </div>
+  </div>
+
+
+<h1> Movies Credits Actor</h1>
+
+<div class="wrapper">
+
+    <div class="card" *ngFor="let credit of movieCreditsPerson | slice:0:8">
+      <p>
+        {{credit}}
+      </p>
+  </div>
+  
+  
+
+
+  <style>
+  .image-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .image-actor{
+    width: 234px;
+    padding: 1%;
+  }
+
+      .wrapper-movie {
+      flex: 1 0 500px;
+      box-sizing: border-box;
+      margin: 1rem .25em;
+      display: flex;
+      padding: 2%;
+    }
+  
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 3%;
+    }
+  
+    .image-card {
+      /*width: 0%;*/
+    }
+  
+    .wrap-image {
+      /*width: 0%;*/
+    }
+  
+    .wrap-desc {
+      padding-left: 2%;
+    }
+  
+    .wrap-desc:hover {
+      background: black;
+      color: white;
+    }
+  </style>

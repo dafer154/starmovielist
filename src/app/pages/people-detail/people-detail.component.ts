@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { PeopleDetailService } from "./people-detail.service";
 import { AppHelperService } from "../../app.helper";
 import { Movie } from "../../classes/movie";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: "app-people-detail",
@@ -20,6 +21,7 @@ export class PeopleDetailComponent implements OnInit {
   resultDetailPerson = {};
   imagesPerson = [];
   movieCreditsPerson = [];
+  movieCredits = {};
 
   ngOnInit() {
     this.route.params.subscribe((param: any) => {
@@ -48,6 +50,7 @@ export class PeopleDetailComponent implements OnInit {
         response => {
           this.movieCreditsPerson = response.cast;
           console.log(this.movieCreditsPerson);
+          console.log("prueba");
         },
         err => {
           // If movie videos return error, raise 404
@@ -59,6 +62,15 @@ export class PeopleDetailComponent implements OnInit {
 
   getImgUrl(src: string): string {
     return this.appHelperService.getImgUrl(src);
+  }
+
+  getCreditMovieActor(idCredit: string) {
+    this.peopleDetailService.getCreditActorMovie(idCredit).subscribe(
+      response => {
+        this.movieCredits = response;
+        console.log(this.movieCredits);
+      }
+    );
   }
 
   getMovieVideoUrl(value: string): string {
