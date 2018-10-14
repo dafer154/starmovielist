@@ -1,19 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { HomeService } from './home.service';
+import { Component, OnInit } from "@angular/core";
+import { HomeService } from "./home.service";
+import { Router } from "@angular/router";
+import { AppHelperService } from "../../app.helper";
+import { Movie } from '../../classes/movie';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
+  
+  trendingTopicMovies: Movie[] = [];
+  popularPeople = [];
 
-  trendingTopicMovies = [];
-
-  constructor(private homeService: HomeService) {}
+  constructor(
+    private router: Router,
+    private homeService: HomeService,
+    private appHelperService: AppHelperService
+  ) {}
 
   ngOnInit() {
     this.getTrendingWeek();
+    this.getPopularPeople();
   }
 
   getTrendingWeek() {
@@ -23,21 +32,34 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getImgUrl(src: string): string {
-    if (src != null) {
-      const url = `https://image.tmdb.org/t/p/w300${src}`;
-      return url;
-    } else {
-      const url = `./assets/images/question.jpg`;
-      return url;
-    }
+  getPopularPeople() {
+    this.homeService.popularPeople().subscribe(response => {
+      this.popularPeople = response;
+      console.log(this.popularPeople);
+    });
   }
 
-  getImagePath(path: string): string {
-    if (typeof path === 'undefined' || path === null) {
-      return 'assets/img/no-img.jpg';
-    } else {
-      return 'https://image.tmdb.org/t/p/w500' + path;
+  moviesParticipated(movies: any) {
+    let listMovies  = '';
+    for ( let i = 0; i < movies.length; i++) {
+      listMovies += movies[i].original_title + ', ';
     }
+    return listMovies;
+  }
+
+  redirectToMovie(id: number) {
+    this.router.navigate(['/movie', id]);
+  }
+
+  redirectToActor(id: number) {
+    this.router.navigate(['/actor', id]);
+  }
+
+  getImgUrl(src: string): string {
+    return this.appHelperService.getImgUrl(src);
+  }
+
+  genresMovie(genre: any) {
+    return this.appHelperService.genresMovie(genre);
   }
 }

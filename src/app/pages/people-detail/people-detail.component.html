@@ -1,0 +1,52 @@
+<div class="container">
+  <br>
+
+  <div *ngIf="resultDetailPerson" class="row" style="margin-top: 9%;">
+    <div class="col-sm-4">
+      <img *ngIf='resultDetailPerson.profile_path' class="img-fluid" src="{{getImgUrl(resultDetailPerson.profile_path)}}" />
+      <div *ngIf="resultDetailPerson.birthday"><label class="label-personality">Birthday: </label>{{resultDetailPerson.birthday}}</div>
+      <div *ngIf="resultDetailPerson.place_of_birth"><label class="label-personality">Place of birth: </label>{{resultDetailPerson.place_of_birth}}</div>
+      <div *ngIf="resultDetailPerson.gender"><label class="label-personality">Gender: </label><span *ngIf="resultDetailPerson.gender===1">Female</span>
+        <span *ngIf="resultDetailPerson.gender===2">Male</span></div>
+    </div>
+
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-sm-10">
+          <h2>{{resultDetailPerson.name}}</h2>
+        </div>
+        <div class="col-sm-2">
+          <h3 style="text-align:right;">{{resultDetailPerson.popularity}} <i class="fa fa-star" aria-hidden="true"></i></h3>
+        </div>
+      </div>
+
+      <span class="right"> </span><span class="left"></span>
+
+      <br>
+      <p>{{resultDetailPerson.biography}}</p>
+    </div>
+  </div>
+</div>
+<hr>
+<h1 class="principal-title">Images Actors</h1>
+
+<div class="image-wrap">
+  <div *ngFor="let photos of imagesPerson | slice:0:10" class="image-actor">
+    <img class="img-fluid" src="{{getImgUrl(photos.file_path)}}" />
+  </div>
+</div>
+
+<hr>
+<h1 class="principal-title"> Movies Credits Actor</h1>
+
+<div class="wrapper">
+  <div class="card-personality" *ngFor="let movie of movieCreditsPerson | slice:0:10">
+    <a (click)="redirectToMovie(movie.id)">
+      <div class="img1" [ngStyle]="{ 'background-image': 'url(' + getImgUrl(movie.poster_path) + ')'}"></div>
+
+      <div class="title">{{movie.title}}</div>
+      <a href="#"><div class="catagory">{{genresMovie(movie.genre_ids)}}<i class="fa fa-film"></i></div></a>
+      <a href="#"><div class="views">{{movie.vote_average}}<i class="fa fa-star"></i> </div></a>
+    </a>
+  </div>
+</div>

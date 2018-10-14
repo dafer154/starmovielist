@@ -1,6 +1,9 @@
-a {
-  text-decoration: none;
-  color: #000;
+label {
+  display: inline-block;
+  width: 8em;
+  margin: 0.5em 0;
+  color: #607d8b;
+  font-weight: bold;
 }
 
 .principal-title {
@@ -8,6 +11,19 @@ a {
   padding-top: 4%;
   font-weight: 400;
 }
+
+.image-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-actor {
+  width: 234px;
+  padding: 1%;
+}
+
+/* Prueba cards*/
 
 .wrapper-movie {
   flex: 1 0 500px;
@@ -19,7 +35,7 @@ a {
 
 .wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding: 3%;
 }
@@ -32,20 +48,6 @@ a {
   background: black;
   color: white;
 }
-
-.wrap-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card-size {
-  width: 215px;
-  height: 600px;
-  margin: 1%;
-}
-
-/* Cards Movies */
 
 .card-personality {
   position: relative;

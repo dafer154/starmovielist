@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -21,6 +23,13 @@ import { SearchService } from './shared/search/search.service';
 
 import { AppHelperService } from './app.helper';
 import { AboutComponent } from './pages/about/about.component';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
+import { PeopleDetailComponent } from './pages/people-detail/people-detail.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+
+/*Pipes */
+
+import {SafePipe} from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -31,12 +40,17 @@ import { AboutComponent } from './pages/about/about.component';
     SearchComponent,
     ActorsComponent,
     MoviesComponent,
-    AboutComponent
+    AboutComponent,
+    MovieDetailComponent,
+    PeopleDetailComponent,
+    NotFoundComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [HomeService, SearchService, AppHelperService],
   bootstrap: [AppComponent]

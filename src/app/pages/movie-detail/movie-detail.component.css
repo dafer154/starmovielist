@@ -1,12 +1,41 @@
-a {
-  text-decoration: none;
-  color: #000;
+label {
+  display: inline-block;
+  width: 8em;
+  margin: 0.5em 0;
+  color: #607d8b;
+  font-weight: bold;
+}
+
+.card-size {
+  width: 215px;
+  height: 480px;
+  margin: 1%;
+}
+
+.title-images {
+  font-weight: bold;
+  font-size: 19px;
+  text-align: center;
+}
+
+.wrap-carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .principal-title {
   text-align: center;
   padding-top: 4%;
   font-weight: 400;
+}
+
+.wrap-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 6%;
 }
 
 .wrapper-movie {
@@ -19,9 +48,13 @@ a {
 
 .wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding: 3%;
+}
+
+.wrap-video {
+  width: 100%;
 }
 
 .wrap-desc {
@@ -33,20 +66,12 @@ a {
   color: white;
 }
 
-.wrap-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/*cards movie*/
+
+a {
+  text-decoration: none;
+  color: #000;
 }
-
-.card-size {
-  width: 215px;
-  height: 600px;
-  margin: 1%;
-}
-
-/* Cards Movies */
-
 .card-personality {
   position: relative;
   overflow: hidden;
