@@ -14,11 +14,22 @@ export class HomeService {
 
   baseURL = 'https://api.themoviedb.org/3/trending/all/week?';
 
+  baseURLPerson = 'https://api.themoviedb.org/3/person/';
+
   constructor(private http: Http) {}
 
   trendingTopicWeek(): Observable<any> {
     return this.http
       .get(`${this.baseURL}api_key=${this.apiKey}`)
+      .map(response => {
+        return response.json().results;
+      });
+  }
+
+  popularPeople(): Observable<any> {
+    const popular = 'popular?';
+    return this.http
+      .get(`${this.baseURLPerson}${popular}api_key=${this.apiKey}`)
       .map(response => {
         return response.json().results;
       });

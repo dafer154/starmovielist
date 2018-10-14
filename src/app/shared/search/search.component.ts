@@ -9,7 +9,7 @@ import { AppHelperService } from "../../app.helper";
   styleUrls: ["./search.component.css"]
 })
 export class SearchComponent implements OnInit {
-  movies: Object[] = [];
+  actors: Object[] = [];
   totalResult: number = 0;
   viewResults: boolean = false;
   query: string = '';
@@ -26,16 +26,16 @@ export class SearchComponent implements OnInit {
    * @param $event
    */
 
-  searchMovies($event) {
+  searchActors($event) {
     const query = $event.target.value;
-    this.searchService.searchMovie(query).subscribe(response => {
-      this.movies = response;
+    this.searchService.searchActor(query).subscribe(response => {
+      this.actors = response;
       this.totalResult = response.length;
       if (this.totalResult !== 0) {
         this.viewResults = true;
       }
       console.log(this.totalResult);
-      console.log(this.movies);
+      console.log(this.actors);
     });
   }
 
@@ -46,12 +46,16 @@ export class SearchComponent implements OnInit {
   }
 
   cleanInput() {
-    this.movies = [];
+    this.actors = [];
     this.totalResult = 0;
     this.viewResults = false;
   }
 
   redirectToMovie(id: number) {
     this.router.navigate(['/movie', id]);
+  }
+
+  redirectToActor(id: number) {
+    this.router.navigate(['/actor', id]);
   }
 }

@@ -12,6 +12,7 @@ import { Movie } from '../../classes/movie';
 export class HomeComponent implements OnInit {
   
   trendingTopicMovies: Movie[] = [];
+  popularPeople = [];
 
   constructor(
     private router: Router,
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getTrendingWeek();
+    this.getPopularPeople();
   }
 
   getTrendingWeek() {
@@ -28,6 +30,21 @@ export class HomeComponent implements OnInit {
       this.trendingTopicMovies = response;
       console.log(this.trendingTopicMovies);
     });
+  }
+
+  getPopularPeople() {
+    this.homeService.popularPeople().subscribe(response => {
+      this.popularPeople = response;
+      console.log(this.popularPeople);
+    });
+  }
+
+  moviesParticipated(movies: any) {
+    let listMovies  = '';
+    for ( let i = 0; i < movies.length; i++) {
+      listMovies += movies[i].original_title + ', ';
+    }
+    return listMovies;
   }
 
   redirectToMovie(id: number) {

@@ -3,11 +3,11 @@
   <div class="footer-left">
 
     <p class="footer-links">
-      <a href="#">Movies</a>
+      <a routerLink="movies">Movies</a>
       ·
-      <a href="#">Series</a>
+      <a routerLink="actors">Actors</a>
       ·
-      <a href="#">About</a>
+      <a routerLink="about">About</a>
     </p>
 
     <p class="footer-company-name">David Fernando Zuluaga &copy; 2018</p>
@@ -30,16 +30,16 @@
 
   <div class="footer-right">
 
-    <p class="footer-company-about">
-      <span>starmovielist</span>
-    </p>
+
+    <h2 class="title1">STAR<span class="title2">MOVIELIST</span></h2>
+
 
     <div class="footer-icons">
 
-      <a href="#"><i class="fa fa-facebook"></i></a>
-      <a href="#"><i class="fa fa-twitter"></i></a>
-      <a href="#"><i class="fa fa-linkedin"></i></a>
-      <a href="#"><i class="fa fa-github"></i></a>
+      <a [href]="personalLinks.facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+      <a [href]="personalLinks.twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a [href]="personalLinks.linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
+      <a [href]="personalLinks.github" target="_blank"><i class="fa fa-github"></i></a>
 
     </div>
 

@@ -21,7 +21,7 @@ export class PeopleDetailComponent implements OnInit {
   resultDetailPerson = {};
   imagesPerson = [];
   movieCreditsPerson = [];
-  movieCredits = {};
+
 
   ngOnInit() {
     this.route.params.subscribe((param: any) => {
@@ -62,15 +62,6 @@ export class PeopleDetailComponent implements OnInit {
 
   getImgUrl(src: string): string {
     return this.appHelperService.getImgUrl(src);
-  }
-
-  getCreditMovieActor(idCredit: string) {
-    this.peopleDetailService.getCreditActorMovie(idCredit).subscribe(
-      response => {
-        this.movieCredits = response;
-        console.log(this.movieCredits);
-      }
-    );
   }
 
   getMovieVideoUrl(value: string): string {

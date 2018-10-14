@@ -1,23 +1,18 @@
-<div class="row">
-	<div class="col-md-12">
-		<div class="input-group m-b-20" id="search-group">
-			<input (keyup)="searchMovies($event)" class="form-control" placeholder="Search movie by name...">
-			<div class="input-group-btn">
-				<button type="button" class="btn btn-inverse" (click)="cleanInput()"><i class="fa fa-times"></i></button>
-			</div>
-		</div>
-	</div>
+<div class="wrap-search">
+	<input (keyup)="searchActors($event)" type="text" placeholder="Search Actor by name..." required="">
+	<button type="submit" (click)="cleanInput()"> <i class="fa fa-times"></i>
+	</button>
 </div>
 
 <div *ngIf="viewResults" id="search-results">
-	<div *ngFor="let match of movies">
-		<a (click)="redirectToMovie(match.id)">
+	<div *ngFor="let match of actors">
+		<a (click)="redirectToActor(match.id)">
 			<div class="results-content">
-				<img class="image-result" src="{{getImgUrl(match.backdrop_path)}}" />
-				<strong class="result-name">{{ match.original_title }}</strong>
+				<img class="image-result" src="{{getImgUrl(match.profile_path)}}" />
+				<strong class="result-name">{{ match.name }}</strong>
 				<br/>
 				<i class="known-for">
-					<b>Known for:</b> {{ match.original_title }}b
+					<span class="fa fa-star"> {{match.popularity}}</span>
 				</i>
 			</div>
 		</a>

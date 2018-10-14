@@ -1,5 +1,5 @@
 <div class="wrap-cards">
-  <div class="card" style="width: 18rem;" *ngFor="let actor of popularPeople">
+  <div class="card" style="width: 18rem;" *ngFor="let actor of popularPeople | slice:0:10">
     <img class="card-img-top" src="{{getImgUrl(actor.profile_path)}}" alt="Card image cap">
     <div class="card-body">
       <h4 class="post-title">
@@ -14,12 +14,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .wrap-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 6%;
-  }
-</style>

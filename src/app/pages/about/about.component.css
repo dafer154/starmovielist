@@ -1,8 +1,29 @@
 /* About Person area css
 ============================================================================================ */
+.main_title {
+  display: flex;
+  justify-content: center;
+}
+
 .about_person_area {
-  background: #fff;
-  margin-top: 60px;
+  margin-top: 4%;
+}
+
+.main_title h2 {
+  font-size: 36px;
+  color: #222222;
+  text-align: center;
+  border: 1px solid #222222;
+  display: inline-block;
+  line-height: 50px;
+  padding: 0px 23px;
+  font-weight: 400;
+}
+
+.row-responsive {
+  margin-top: 20px;
+  margin-right: 1px !important;
+  margin-left: 14px !important;
 }
 
 .about_person_area .person_img {
@@ -10,12 +31,8 @@
 }
 
 .about_person_area .person_img img {
-  max-width: 386px;
-  margin-top: 18%;
-}
-
-.about_person_area .person_img .download_btn {
-  margin-top: 66px;
+  max-width: 280px;
+  margin-top: 6%;
 }
 
 .about_person_area .person_details h3 {
@@ -47,149 +64,12 @@
   font-weight: 400;
 }
 
-.about_person_area .person_details .person_information {
-  padding: 15px 0px 25px 0px;
-}
-
-.about_person_area .person_details .person_information ul {
-  display: inline-block;
-}
-
-.about_person_area .person_details .person_information ul li a {
-  font-size: 13px;
-  line-height: 26px;
-  color: #333333;
-  font-family: "Raleway", sans-serif;
-}
-
-.about_person_area .person_details .person_information ul + ul {
-  padding-left: 55px;
-}
-
-.about_person_area .person_details .person_information ul + ul li a {
-  font-size: 13px;
-  line-height: 26px;
-  color: #666666;
-  font-family: "Raleway", sans-serif;
-}
-
-.social_icon li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.social_icon li a {
-  height: 40px;
-  width: 40px;
-  text-align: center;
-  border: 1px solid #677fb5;
-  display: block;
-  line-height: 40px;
-  font-size: 18px;
-  border-radius: 5px;
-  transition: all 400ms linear 0s;
-  color: #677fb5;
-}
-
-.social_icon li:nth-child(2) a {
-  color: #70c2e9;
-  border-color: #70c2e9;
-}
-
-.social_icon li:nth-child(2):hover a {
-  background: #70c2e9;
-}
-
-.social_icon li:nth-child(3) a {
-  color: #895a4d;
-  border-color: #895a4d;
-}
-
-.social_icon li:nth-child(3):hover a {
-  background: #895a4d;
-}
-
-.social_icon li:nth-child(4) a {
-  color: #d34836;
-  border-color: #d34836;
-}
-
-.social_icon li:nth-child(4):hover a {
-  background: #d34836;
-}
-
-.social_icon li:nth-child(5) a {
-  color: #007ab9;
-  border-color: #007ab9;
-}
-
-.social_icon li:nth-child(5):hover a {
-  background: #007ab9;
-}
-
-.social_icon li:nth-child(6) a {
-  color: #d8545d;
-  border-color: #d8545d;
-}
-
-.social_icon li:nth-child(6):hover a {
-  background: #d8545d;
-}
-
-.social_icon li:nth-child(7) a {
-  color: #5ecbf3;
-  border-color: #5ecbf3;
-}
-
-.social_icon li:nth-child(7):hover a {
-  background: #5ecbf3;
-}
-
-.social_icon li:nth-child(8) a {
-  color: #ff3ba4;
-  border-color: #ff3ba4;
-}
-
-.social_icon li:nth-child(8):hover a {
-  background: #ff3ba4;
-}
-
-.social_icon li:last-child {
-  margin-right: 0px;
-}
-
-.social_icon li:last-child a {
-  color: #faaa5e;
-  border-color: #faaa5e;
-}
-
-.social_icon li:last-child:hover a {
-  background: #faaa5e;
-}
-
-.social_icon li:hover a {
-  background: #677fb5;
-  color: #fff;
-}
-
 /* End About Person area css
     ============================================================================================ */
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 /* Download BTN area css
     ============================================================================================ */
-.download_btn {
-  display: flex;
-  background: #fec608;
-  text-align: center;
-  line-height: 33px;
-  border-radius: 20px;
-  color: #222222;
-  font-size: 21px;
-  font-weight: 700;
-  position: relative;
-  overflow: hidden;
-}
 
 .download-cv {
   border-radius: 20px;
@@ -206,116 +86,9 @@
   padding-top: 4%;
 }
 
-.download_btn span {
-  display: inline-block;
-  width: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  height: 100%;
-  transition: all 400ms linear 0s;
-}
-
-.download_btn:before {
-  content: "\f019";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  line-height: 40px;
-  font-size: 18px;
-  color: #222222;
-  top: -100%;
-  left: 0px;
-  font-family: FontAwesome;
-  transition: all 200ms ease-in;
-}
-
-.download_btn:hover span {
-  -webkit-transform: translateY(300%);
-  -ms-transform: translateY(300%);
-  transform: translateY(300%);
-}
-
-.download_btn:hover:before {
-  top: 0px;
-}
-
-.contact_btn {
-  max-width: 140px;
-  display: block;
-  line-height: 40px;
-  color: #fff;
-  font-family: "Raleway", sans-serif;
-  box-shadow: none !important;
-  outline: none !important;
-  border: none;
-  border-radius: 0px;
-  background: #fec608;
-  width: 100%;
-  padding: 0px;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact_btn span {
-  display: inline-block;
-  width: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  height: 100%;
-  transition: all 400ms linear 0s;
-}
-
-.contact_btn:before {
-  content: "\f1d8";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  line-height: 40px;
-  font-size: 18px;
-  color: #fff;
-  top: -100%;
-  left: 0px;
-  font-family: FontAwesome;
-  transition: all 200ms ease-in;
-}
-
-.contact_btn:focus {
-  background: #fec608;
-}
-
-.contact_btn:hover {
-  background: #fec608;
-}
-
-.contact_btn:hover span {
-  -webkit-transform: translateY(300%);
-  -ms-transform: translateY(300%);
-  transform: translateY(300%);
-}
-
-.contact_btn:hover:before {
-  top: 0px;
-}
-
 /* End Download BTN area css
     ============================================================================================ */
 /*---------------------------------------------------- */
-
-.title-skill {
-  color: black !important;
-  border: 2px solid #383d41;
-  padding: 2%;
-  border-radius: 4%;
-}
-
-.title-about {
-  margin-top: -46px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
 
 .wrapp-image {
   display: flex;
@@ -325,7 +98,7 @@
 }
 
 .img-about {
-  transform: rotate(270deg);
+  transform: rotate(360deg);
   border-radius: 21px;
 }
 
@@ -334,45 +107,4 @@
   border-bottom-right-radius: 10px;
   border: 1px solid #eeeeee;
   position: relative;
-}
-
-.biography::after {
-  content: "";
-  border-bottom: 1px solid #eeeeee;
-  position: absolute;
-  bottom: -3px;
-  width: 100%;
-  border-radius: 10px;
-  height: 20px;
-}
-
-.myphoto {
-  position: relative;
-  background-size: contain;
-}
-
-.myphoto img {
-  position: relative;
-  z-index: -1;
-}
-
-.biography ul {
-  padding: 25px 20px 30px;
-}
-
-.biography ul li {
-  padding: 5px 0;
-  font-size: 16px;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.biography ul li:last-child {
-  border-bottom: 0;
-}
-
-ul.list-check li:before {
-  content: "\F00C";
-  font-family: fontawesome;
-  color: #68c3a3;
-  margin-right: 10px;
 }

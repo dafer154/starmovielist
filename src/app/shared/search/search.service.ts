@@ -26,5 +26,15 @@ export class SearchService {
         return response.json().results;
     });
   }
+
+  searchActor(query: string): Observable<any> {
+    const movieUrl = '/person?';
+    return this.http.get(`${this.baseURL}${movieUrl}api_key=${this.apiKey}&query=${query}&page=1`)
+      .map(response => {
+        return response.json().results;
+    });
+  }
+
+
 }
 

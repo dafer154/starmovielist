@@ -5,59 +5,78 @@ label {
   color: #607d8b;
   font-weight: bold;
 }
-input {
-  height: 2em;
-  font-size: 1em;
-  padding-left: 0.4em;
-}
-button {
-  margin-top: 20px;
-  font-family: Arial;
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-}
-button:hover {
-  background-color: #cfd8dc;
-}
-button:disabled {
-  background-color: #eee;
-  color: #ccc;
-  cursor: auto;
-}
-.right {
-  float: right;
+
+.card-size {
+  width: 215px;
+  height: 480px;
+  margin: 1%;
 }
 
-.left {
-  float: left;
+.title-images {
+  font-weight: bold;
+  font-size: 19px;
+  text-align: center;
+}
+
+.wrap-carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.principal-title {
+  text-align: center;
+  padding-top: 4%;
+  font-weight: 400;
+}
+
+.wrap-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 6%;
+}
+
+.wrapper-movie {
+  flex: 1 0 500px;
+  box-sizing: border-box;
+  margin: 1rem 0.25em;
+  display: flex;
+  padding: 2%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 3%;
+}
+
+.wrap-video {
+  width: 100%;
+}
+
+.wrap-desc {
+  padding-left: 2%;
+}
+
+.wrap-desc:hover {
+  background: black;
+  color: white;
 }
 
 /*cards movie*/
-
-* {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-}
 
 a {
   text-decoration: none;
   color: #000;
 }
-
 .card-personality {
   position: relative;
   overflow: hidden;
-  width: 186px;
-  height: 243px;
+  width: 215px;
+  height: 280px;
   margin: 4px auto;
   background: #2a264f;
   border: 4px solid #1a163f;
@@ -71,8 +90,7 @@ a {
   left: 0;
   height: 93%;
   width: 100%;
-  background-image: url(http://cima4u.tv/wp-content/uploads/1-71.jpg);
-  background-size: 310px 440px;
+  background-size: 215px 280px;
   background-position: left top;
   transition: all 0.5s ease-in-out;
 }
@@ -84,7 +102,7 @@ a {
   height: 40%;
   width: 100%;
   background-image: url(http://cima4u.tv/wp-content/uploads/1-71.jpg);
-  background-size: 310px 440px;
+  background-size: 215px 280px;
   background-position: left bottom;
   transition: all 0.5s ease-in-out;
 }

@@ -74,6 +74,7 @@ export class MovieDetailComponent implements OnInit {
     });
   }
 
+  
   getImgUrl(src: string): string {
     return this.appHelperService.getImgUrl(src);
   }
