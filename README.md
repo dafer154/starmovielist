@@ -1,4 +1,4 @@
-# MovieCli
+# StarMovieList
 
 This project has a Angular 6 client of TMDB API. 
 this project was create for practice and learn Angular 6
