@@ -29,7 +29,6 @@ export class PeopleDetailComponent implements OnInit {
       this.peopleDetailService.getDetailPerson(id).subscribe(
         response => {
           this.resultDetailPerson = response;
-          console.log(this.resultDetailPerson);
         },
         err => {
           // If movie detail return error, raise 404
@@ -39,7 +38,6 @@ export class PeopleDetailComponent implements OnInit {
       this.peopleDetailService.getImagesPeople(id).subscribe(
         response => {
           this.imagesPerson = response.profiles;
-          console.log(this.imagesPerson);
         },
         err => {
           // If movie videos return error, raise 404
@@ -49,8 +47,6 @@ export class PeopleDetailComponent implements OnInit {
       this.peopleDetailService.getMovieCreditsPerson(id).subscribe(
         response => {
           this.movieCreditsPerson = response.cast;
-          console.log(this.movieCreditsPerson);
-          console.log("prueba");
         },
         err => {
           // If movie videos return error, raise 404
@@ -69,11 +65,11 @@ export class PeopleDetailComponent implements OnInit {
   }
 
   redirectToMovie(id: number) {
-    this.router.navigate(["/movie", id]);
+    this.router.navigate(['/movie', id]);
   }
 
   redirectToActor(id: number) {
-    this.router.navigate(["/actor", id]);
+    this.router.navigate(['/actor', id]);
   }
 
   genresMovie(genre: any) {

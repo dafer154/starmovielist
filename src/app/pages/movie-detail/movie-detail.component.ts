@@ -28,7 +28,6 @@ export class MovieDetailComponent implements OnInit {
       this.movieDetailService.detailMovie(id).subscribe(
         response => {
           this.resultDetailMovie = response;
-          console.log(this.resultDetailMovie);
         },
         err => {
           // If movie detail return error, raise 404
@@ -38,7 +37,6 @@ export class MovieDetailComponent implements OnInit {
       this.movieDetailService.getMovieVideos(id).subscribe(
         response => {
           this.movie = response.results[0];
-          console.log(this.movie);
         },
         err => {
           // If movie videos return error, raise 404
@@ -48,7 +46,6 @@ export class MovieDetailComponent implements OnInit {
       this.movieDetailService.getRecommendationsMovie(id).subscribe(
         response => {
           this.recommendationsMovie = response.results;
-          console.log(this.recommendationsMovie);
         },
         err => {
           // If movie videos return error, raise 404
@@ -58,7 +55,6 @@ export class MovieDetailComponent implements OnInit {
       this.movieDetailService.getCreditsMovie(id).subscribe(
         response => {
           this.movieCredits = response.cast;
-          console.log(this.movieCredits);
         },
         err => {
           // If movie videos return error, raise 404
@@ -68,13 +64,11 @@ export class MovieDetailComponent implements OnInit {
       this.movieDetailService.getImages(id).subscribe(
         response => {
           this.imagesMovie = response.backdrops;
-          console.log(this.imagesMovie);
         }
       );
     });
   }
 
-  
   getImgUrl(src: string): string {
     return this.appHelperService.getImgUrl(src);
   }

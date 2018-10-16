@@ -76,13 +76,13 @@
     <img class="card-img-top" src="{{getImgUrl(actor.profile_path)}}" alt="Card image cap">
     <div class="card-body">
       <h4 class="post-title">
-        <a [routerLink]="['/actor', actor.id]">{{actor.name}}</a>
+        <a (click)="redirectToActor(actor.id)">{{actor.name}}</a>
       </h4>
       <div class="post-by">
         <i class="fa fa-star"></i><span class="divider"> {{actor.character}}</span>
       </div>
       <div class="read-btn-container">
-        <a [routerLink]="['/actor', actor.id]">View details <i class="fa fa-angle-double-right"></i></a>
+        <a (click)="redirectToActor(actor.id)">View details <i class="fa fa-angle-double-right"></i></a>
       </div>
     </div>
   </div>

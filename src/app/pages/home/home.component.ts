@@ -28,14 +28,12 @@ export class HomeComponent implements OnInit {
   getTrendingWeek() {
     this.homeService.trendingTopicWeek().subscribe(response => {
       this.trendingTopicMovies = response;
-      console.log(this.trendingTopicMovies);
     });
   }
 
   getPopularPeople() {
     this.homeService.popularPeople().subscribe(response => {
       this.popularPeople = response;
-      console.log(this.popularPeople);
     });
   }
 
@@ -62,4 +60,5 @@ export class HomeComponent implements OnInit {
   genresMovie(genre: any) {
     return this.appHelperService.genresMovie(genre);
   }
+
 }
