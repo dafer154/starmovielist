@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActorsService } from "./actors.service";
 import { AppHelperService } from "../../app.helper";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-actors",
@@ -10,7 +11,8 @@ import { AppHelperService } from "../../app.helper";
 export class ActorsComponent implements OnInit {
   constructor(
     private actorsService: ActorsService,
-    private appHelperService: AppHelperService
+    private appHelperService: AppHelperService,
+    private router: Router
   ) {}
 
   popularPeople = [];
@@ -23,7 +25,6 @@ export class ActorsComponent implements OnInit {
   getPopularPeople() {
     this.actorsService.popularPeople().subscribe(response => {
       this.popularPeople = response;
-      console.log(this.popularPeople);
     });
   }
 
@@ -39,5 +40,13 @@ export class ActorsComponent implements OnInit {
 
   getImgUrl(src: string): string {
     return this.appHelperService.getImgUrl(src);
+  }
+
+  redirectToMovie(id: number) {
+    this.router.navigate(['/movie', id]);
+  }
+
+  redirectToActor(id: number) {
+    this.router.navigate(['/actor', id]);
   }
 }

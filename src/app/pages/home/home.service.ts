@@ -1,8 +1,11 @@
 import { Injectable } from "@angular/core";
 import { API_KEY } from "../../app.key";
 import { Observable } from "rxjs";
-import { Http, Headers } from "@angular/http";
+import { Http } from "@angular/http";
 import "rxjs/add/operator/map";
+import 'rxjs/add/operator/catch';
+
+
 
 @Injectable({
   providedIn: "root"
@@ -10,8 +13,8 @@ import "rxjs/add/operator/map";
 export class HomeService {
   /*Api key david*/
   apiKey: string = API_KEY;
-  /*End point more popular series and movies in the week */
 
+  /*End point more popular series and movies in the week */
   baseURL = 'https://api.themoviedb.org/3/trending/all/week?';
 
   baseURLPerson = 'https://api.themoviedb.org/3/person/';
@@ -23,7 +26,7 @@ export class HomeService {
       .get(`${this.baseURL}api_key=${this.apiKey}`)
       .map(response => {
         return response.json().results;
-      });
+      }).catch(this.errorHandler);
   }
 
   popularPeople(): Observable<any> {
@@ -32,6 +35,12 @@ export class HomeService {
       .get(`${this.baseURLPerson}${popular}api_key=${this.apiKey}`)
       .map(response => {
         return response.json().results;
-      });
+      }).catch(this.errorHandler);
   }
+
+  private errorHandler(error: Response) {
+    console.error('An error occurred', error);
+    return Observable.throw(error.statusText);
+  }
+
 }

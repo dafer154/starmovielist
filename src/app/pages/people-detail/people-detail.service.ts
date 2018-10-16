@@ -26,7 +26,7 @@ export class PeopleDetailService {
       .get(`${this.baseURL}/${idActor}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      });
+      }).catch(this.errorHandler);
   }
 
 
@@ -36,7 +36,7 @@ export class PeopleDetailService {
       .get(`${this.baseURL}/${idActor}${credits}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      });
+      }).catch(this.errorHandler);
   }
 
   getImagesPeople(idActor: string): Observable<any> {
@@ -45,7 +45,7 @@ export class PeopleDetailService {
       .get(`${this.baseURL}/${idActor}${images}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      });
+      }).catch(this.errorHandler);
   }
 
   getCreditActorMovie(idCredit: string): Observable<any> {
@@ -53,6 +53,11 @@ export class PeopleDetailService {
       .get(`${this.baserUrlCredit}/${idCredit}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      });
+      }).catch(this.errorHandler);
+  }
+
+  private errorHandler(error: Response) {
+    console.error('An error occurred', error);
+    return Observable.throw(error.statusText);
   }
 }

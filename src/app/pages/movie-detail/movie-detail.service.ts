@@ -3,6 +3,7 @@ import { API_KEY } from '../../app.key';
 import { Observable } from 'rxjs';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class MovieDetailService {
       .get(`${this.baseURL}/${idMovie}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      });
+      }).catch(this.errorHandler);
   }
 
   getMovieVideos(idMovie: string): Observable<any> {
@@ -32,7 +33,7 @@ export class MovieDetailService {
       .get(`${this.baseURL}/${idMovie}${videoUrl}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      });
+      }).catch(this.errorHandler);
   }
 
   getRecommendationsMovie(idMovie: string): Observable<any> {
@@ -41,7 +42,7 @@ export class MovieDetailService {
       .get(`${this.baseURL}/${idMovie}${recomend}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      });
+      }).catch(this.errorHandler);
   }
 
   getCreditsMovie(idMovie: string): Observable<any> {
@@ -50,7 +51,7 @@ export class MovieDetailService {
       .get(`${this.baseURL}/${idMovie}${credits}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      });
+      }).catch(this.errorHandler);
   }
 
   getImages(idMovie: string): Observable<any> {
@@ -59,8 +60,12 @@ export class MovieDetailService {
       .get(`${this.baseURL}/${idMovie}${images}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      });
+      }).catch(this.errorHandler);
   }
 
+  private errorHandler(error: Response) {
+    console.error('An error occurred', error);
+    return Observable.throw(error.statusText);
+  }
 
 }

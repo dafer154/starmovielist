@@ -15,11 +15,10 @@ const app_routes: Routes = [
     {path: 'actor/:id', component: PeopleDetailComponent},
     {path: 'about', component: AboutComponent},
     {path: '404', component: NotFoundComponent},
+    {path: 'movies', component: MoviesComponent},
     {path: 'actors', component: ActorsComponent},
     {path: '**', redirectTo: '404'}
 ];
-
-
 
 @NgModule({
     imports: [
