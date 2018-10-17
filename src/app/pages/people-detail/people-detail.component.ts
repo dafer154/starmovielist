@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
-import { PeopleDetailService } from "./people-detail.service";
-import { AppHelperService } from "../../app.helper";
-import { Movie } from "../../classes/movie";
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PeopleDetailService } from './people-detail.service';
+import { AppHelperService } from '../../app.helper';
+import { Movie } from '../../classes/movie';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: "app-people-detail",
-  templateUrl: "./people-detail.component.html",
-  styleUrls: ["./people-detail.component.css"]
+  selector: 'app-people-detail',
+  templateUrl: './people-detail.component.html',
+  styleUrls: ['./people-detail.component.css']
 })
 export class PeopleDetailComponent implements OnInit {
   constructor(
@@ -22,17 +22,16 @@ export class PeopleDetailComponent implements OnInit {
   imagesPerson = [];
   movieCreditsPerson = [];
 
-
   ngOnInit() {
     this.route.params.subscribe((param: any) => {
-      const id = param["id"];
+      const id = param['id'];
       this.peopleDetailService.getDetailPerson(id).subscribe(
         response => {
           this.resultDetailPerson = response;
         },
         err => {
           // If movie detail return error, raise 404
-          this.router.navigate(["/404"]);
+          this.router.navigate(['/404']);
         }
       );
       this.peopleDetailService.getImagesPeople(id).subscribe(
@@ -41,7 +40,7 @@ export class PeopleDetailComponent implements OnInit {
         },
         err => {
           // If movie videos return error, raise 404
-          this.router.navigate(["/404"]);
+          this.router.navigate(['/404']);
         }
       );
       this.peopleDetailService.getMovieCreditsPerson(id).subscribe(
@@ -50,7 +49,7 @@ export class PeopleDetailComponent implements OnInit {
         },
         err => {
           // If movie videos return error, raise 404
-          this.router.navigate(["/404"]);
+          this.router.navigate(['/404']);
         }
       );
     });

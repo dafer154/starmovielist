@@ -9,3 +9,125 @@ a {
   justify-content: center;
   padding-top: 6%;
 }
+
+.principal-title {
+  text-align: center;
+  padding-top: 4%;
+  font-weight: 400;
+}
+
+/* Search Actors */
+
+#search-input {
+  background-color: #f4f4f4;
+  border: 2px solid #ccc;
+}
+#search-group {
+  padding-top: 25px;
+  padding-left: 150px;
+  padding-right: 150px;
+  width: 100%;
+}
+#search-results {
+  width: 74%;
+  background-color: #ffffff;
+  position: absolute;
+  margin-top: 8px;
+  z-index: 100;
+  border: 1px solid #dddddd;
+  margin-left: 11%;
+}
+.results-content {
+  margin-bottom: 2px;
+  margin-top: 2px;
+  border-bottom: 1px solid #ccc;
+  padding-left: 23px;
+  padding-top: 7px;
+}
+.results-content:hover {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+.image-result {
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.known-for {
+  font-size: 11px;
+  color: #707478;
+}
+.result-name {
+  color: black;
+}
+.total-results {
+  color: black;
+  padding: 10px;
+}
+
+/* Button search */
+
+.wrap-search {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 4%;
+}
+
+/* Form text input */
+
+.wrap-search input {
+  width: 550px;
+  height: 40px;
+  padding: 10px 15px;
+  float: left;
+  font: normal 16px "Arial", "Tahoma";
+  border: 1px solid #ced4da;
+  background: #fff;
+  border-radius: 5px 0 0 5px;
+}
+
+/* Form submit button */
+.wrap-search button {
+  overflow: visible;
+  position: relative;
+  float: right;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  height: 40px;
+  width: 50px;
+  font: bold 18px "Arial", "Tahoma";
+  color: white;
+  background: #c1c1c1;
+  border-radius: 0 5px 5px 0;
+  transition: all 2s linear;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+}
+
+.wrap-search button:hover {
+  background: #5cc924;
+  transition: all 2s linear;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+}
+
+.wrap-search button:active,
+.wrap-search button:focus {
+  background: #329400;
+  outline: 0;
+  transition: all 0s linear;
+  -webkit-transition: all 0s linear;
+  -moz-transition: all 0s linear;
+  -ms-transition: all 0s linear;
+  -o-transition: all 0s linear;
+}

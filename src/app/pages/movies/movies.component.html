@@ -1,14 +1,23 @@
-<div class="btn-group wrap-button" role="group" aria-label="Basic example">
+<div class="container">
+  <div class="wrap-search">
+    <input (keyup)="searchMovies($event)" type="text" placeholder="Search Movie by name..." required="">
+    <button type="submit" (click)="cleanInput()"> <i class="fa fa-times"></i>
+    </button>
+  </div>
+
+
+  <div class="btn-group wrap-button" role="group" aria-label="Basic example">
     <button type="button" class="btn btn-primary" (click)="getNowPlayingMovies()">Now playing</button>
     <button type="button" class="btn btn-secondary" (click)="getPopularMovies()">Popular</button>
     <button type="button" class="btn btn-success" (click)="getTopRatedMovies()">Top rated</button>
     <button type="button" class="btn btn-warning" (click)="getUpComingMovies()">Up coming</button>
-</div>
+  </div>
 
-<div *ngIf="movies">
+
+  <div *ngIf="movies">
     <h1 class="principal-title">{{current}} Movies</h1>
     <div class="wrapper">
-      <div class="card-personality" *ngFor="let movie of movies | slice:0:10">
+      <div class="card-personality" *ngFor="let movie of movies | slice:0:8">
         <a (click)="redirectToMovie(movie.id)">
           <div class="img1" [ngStyle]="{ 'background-image': 'url(' + getImgUrl(movie.poster_path) + ')'}"></div>
           <div class="title">{{movie.title}}</div>
@@ -17,4 +26,6 @@
         </a>
       </div>
     </div>
+  </div>
+
 </div>

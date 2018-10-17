@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { SearchService } from "./search.service";
-import { Router, ActivatedRoute } from "@angular/router";
-import { AppHelperService } from "../../app.helper";
+import { Component, OnInit } from '@angular/core';
+import { SearchService } from './search.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AppHelperService } from '../../app.helper';
 
 @Component({
-  selector: "app-search",
-  templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.css"]
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
   actors: Object[] = [];
@@ -14,10 +14,12 @@ export class SearchComponent implements OnInit {
   viewResults: boolean = false;
   query: string = '';
 
-  constructor(private searchService: SearchService,
-              private router: Router,
-              private route: ActivatedRoute,
-              private appHelperService: AppHelperService) {}
+  constructor(
+    private searchService: SearchService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private appHelperService: AppHelperService
+  ) {}
 
   ngOnInit() {}
 
@@ -38,8 +40,6 @@ export class SearchComponent implements OnInit {
       console.log(this.actors);
     });
   }
-
-
 
   getImgUrl(src: string): string {
     return this.appHelperService.getImgUrl(src);

@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   personalLinks = {
     linkedin: 'https://linkedin.com/in/davidfza25',
@@ -17,10 +16,7 @@ export class FooterComponent implements OnInit {
     facebook: 'https://www.facebook.com/David.FZA'
   };
 
-
   anio: number = new Date().getFullYear();
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

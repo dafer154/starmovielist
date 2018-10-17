@@ -1,16 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { HomeService } from "./home.service";
-import { Router } from "@angular/router";
-import { AppHelperService } from "../../app.helper";
+import { Component, OnInit } from '@angular/core';
+import { HomeService } from './home.service';
+import { Router } from '@angular/router';
+import { AppHelperService } from '../../app.helper';
 import { Movie } from '../../classes/movie';
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.css"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
   trendingTopicMovies: Movie[] = [];
   popularPeople = [];
 
@@ -38,8 +37,8 @@ export class HomeComponent implements OnInit {
   }
 
   moviesParticipated(movies: any) {
-    let listMovies  = '';
-    for ( let i = 0; i < movies.length; i++) {
+    let listMovies = '';
+    for (let i = 0; i < movies.length; i++) {
       listMovies += movies[i].original_title + ', ';
     }
     return listMovies;
@@ -60,5 +59,4 @@ export class HomeComponent implements OnInit {
   genresMovie(genre: any) {
     return this.appHelperService.genresMovie(genre);
   }
-
 }

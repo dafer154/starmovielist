@@ -1,15 +1,31 @@
-<div class="wrap-cards">
-  <div class="card" style="width: 18rem;" *ngFor="let actor of popularPeople | slice:0:10">
-    <img class="card-img-top" src="{{getImgUrl(actor.profile_path)}}" alt="Card image cap">
-    <div class="card-body">
-      <h4 class="post-title">
-        <a (click)="redirectToActor(actor.id)">{{actor.name}}</a>
-      </h4>
-      <div class="post-by">
-        <i class="fa fa-star"></i> {{actor.popularity}} <span class="divider"> | </span> <i class="fa fa-film" style="padding-right: 2%;"></i>{{moviesParticipated(actor.known_for)}}
-      </div>
-      <div class="read-btn-container">
-        <a (click)="redirectToActor(actor.id)">View details <i class="fa fa-angle-double-right"></i></a>
+<div class="container">
+  <div class="wrap-search">
+    <input (keyup)="searchActors($event)" type="text" placeholder="Search Actors by name..." required="">
+    <button type="submit"> <i class="fa fa-times"></i>
+    </button>
+  </div>
+
+  <div style="display: flex; justify-content: center;">
+    <button type="button" class="btn btn-secondary" (click)="getPopularPeople()">Popular</button>
+  </div>
+
+
+  <div *ngIf="people">
+    <h1 class="principal-title">{{current}} Actors</h1>
+    <div class="wrap-cards" *ngIf="people">
+      <div class="card" style="width: 18rem;" *ngFor="let actor of people | slice:0:10">
+        <img class="card-img-top" src="{{getImgUrl(actor.profile_path)}}" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="post-title">
+            <a (click)="redirectToActor(actor.id)">{{actor.name}}</a>
+          </h4>
+          <div class="post-by">
+            <i class="fa fa-star"></i> {{actor.popularity}} <span class="divider"> | </span> <i class="fa fa-film" style="padding-right: 2%;"></i>{{moviesParticipated(actor.known_for)}}
+          </div>
+          <div class="read-btn-container">
+            <a (click)="redirectToActor(actor.id)">View details <i class="fa fa-angle-double-right"></i></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

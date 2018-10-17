@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
-import { MovieDetailService } from "./movie-detail.service";
-import { AppHelperService } from "../../app.helper";
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MovieDetailService } from './movie-detail.service';
+import { AppHelperService } from '../../app.helper';
 import { Movie } from '../../classes/movie';
 
 @Component({
-  selector: "app-movie-detail",
-  templateUrl: "./movie-detail.component.html",
-  styleUrls: ["./movie-detail.component.css"]
+  selector: 'app-movie-detail',
+  templateUrl: './movie-detail.component.html',
+  styleUrls: ['./movie-detail.component.css']
 })
 export class MovieDetailComponent implements OnInit {
   resultDetailMovie: any = {};
@@ -61,11 +61,9 @@ export class MovieDetailComponent implements OnInit {
           this.router.navigate(['/404']);
         }
       );
-      this.movieDetailService.getImages(id).subscribe(
-        response => {
-          this.imagesMovie = response.backdrops;
-        }
-      );
+      this.movieDetailService.getImages(id).subscribe(response => {
+        this.imagesMovie = response.backdrops;
+      });
     });
   }
 
@@ -88,5 +86,4 @@ export class MovieDetailComponent implements OnInit {
   genresMovie(genre: any) {
     return this.appHelperService.genresMovie(genre);
   }
-
 }

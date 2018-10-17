@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { MoviesService } from './movies.service';
+import { SearchService } from '../../shared/search/search.service';
 import { Router } from '@angular/router';
 import { AppHelperService } from '../../app.helper';
 import { Movie } from '../../classes/movie';
@@ -11,13 +11,15 @@ import { Movie } from '../../classes/movie';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-
   movies: Movie[] = [];
   current = 'Now playing';
+  totalResult: number = 0;
+  viewResults = false;
 
   constructor(
     private router: Router,
     private moviesService: MoviesService,
+    private searchService: SearchService,
     private appHelperService: AppHelperService
   ) {}
 
@@ -27,7 +29,7 @@ export class MoviesComponent implements OnInit {
 
   getNowPlayingMovies() {
     this.moviesService.nowPlayingMovies().subscribe(response => {
-      this.current = "Now playing";
+      this.current = 'Now playing';
       this.movies = response;
     });
   }
@@ -53,6 +55,25 @@ export class MoviesComponent implements OnInit {
     });
   }
 
+  //Search movies
+
+  searchMovies($event) {
+    const query = $event.target.value;
+    this.searchService.searchMovie(query).subscribe(response => {
+      this.movies = response;
+      this.current = 'Search';
+      this.totalResult = response.length;
+      if (this.totalResult !== 0) {
+        this.viewResults = true;
+      }
+    });
+  }
+
+  cleanInput() {
+    this.movies = [];
+    this.totalResult = 0;
+    this.viewResults = false;
+  }
 
   redirectToMovie(id: number) {
     this.router.navigate(['/movie', id]);

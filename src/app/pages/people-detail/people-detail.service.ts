@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API_KEY } from '../../app.key';
 import { Observable } from 'rxjs';
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -9,7 +9,6 @@ import 'rxjs/add/operator/catch';
   providedIn: 'root'
 })
 export class PeopleDetailService {
-
   apiKey: string = API_KEY;
 
   /*Endpoint for detail Movies */
@@ -18,7 +17,6 @@ export class PeopleDetailService {
 
   baserUrlCredit = 'https://api.themoviedb.org/3/credit';
 
-
   constructor(private http: Http) {}
 
   getDetailPerson(idActor: string): Observable<any> {
@@ -26,9 +24,9 @@ export class PeopleDetailService {
       .get(`${this.baseURL}/${idActor}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      }).catch(this.errorHandler);
+      })
+      .catch(this.errorHandler);
   }
-
 
   getMovieCreditsPerson(idActor: string): Observable<any> {
     const credits = '/movie_credits';
@@ -36,7 +34,8 @@ export class PeopleDetailService {
       .get(`${this.baseURL}/${idActor}${credits}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      }).catch(this.errorHandler);
+      })
+      .catch(this.errorHandler);
   }
 
   getImagesPeople(idActor: string): Observable<any> {
@@ -45,7 +44,8 @@ export class PeopleDetailService {
       .get(`${this.baseURL}/${idActor}${images}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      }).catch(this.errorHandler);
+      })
+      .catch(this.errorHandler);
   }
 
   getCreditActorMovie(idCredit: string): Observable<any> {
@@ -53,7 +53,8 @@ export class PeopleDetailService {
       .get(`${this.baserUrlCredit}/${idCredit}?api_key=${this.apiKey}`)
       .map(response => {
         return response.json();
-      }).catch(this.errorHandler);
+      })
+      .catch(this.errorHandler);
   }
 
   private errorHandler(error: Response) {

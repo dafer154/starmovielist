@@ -1,33 +1,35 @@
-<h1 class="principal-title">Trendings Movies</h1>
+<div class="container">
+  <h1 class="principal-title">Trendings Movies</h1>
 
-<div class="wrapper">
-  <div class="card-personality" *ngFor="let movie of trendingTopicMovies | slice:0:10">
-    <a (click)="redirectToMovie(movie.id)">
-      <div class="img1" [ngStyle]="{ 'background-image': 'url(' + getImgUrl(movie.poster_path) + ')'}"></div>
+  <div class="wrapper">
+    <div class="card-personality" *ngFor="let movie of trendingTopicMovies | slice:0:8">
+      <a (click)="redirectToMovie(movie.id)">
+        <div class="img1" [ngStyle]="{ 'background-image': 'url(' + getImgUrl(movie.poster_path) + ')'}"></div>
 
-      <div class="title">{{movie.title}}</div>
-      <a href="#"><div class="catagory">{{genresMovie(movie.genre_ids)}}<i class="fa fa-film"></i></div></a>
-      <a href="#"><div class="views">{{movie.vote_average}}<i class="fa fa-star"></i> </div></a>
-    </a>
+        <div class="title">{{movie.title}}</div>
+        <a href="#"><div class="catagory">{{genresMovie(movie.genre_ids)}}<i class="fa fa-film"></i></div></a>
+        <a href="#"><div class="views">{{movie.vote_average}}<i class="fa fa-star"></i> </div></a>
+      </a>
+    </div>
   </div>
-</div>
 
-<hr>
-<h1 class="principal-title">Popular Actors</h1>
+  <hr>
+  <h1 class="principal-title">Popular Actors</h1>
 
-<div class="wrap-cards">
   <div class="wrap-cards">
-    <div class="card card-size" *ngFor="let actor of popularPeople | slice:0:10">
-      <img class="card-img-top" src="{{getImgUrl(actor.profile_path)}}" alt="Card image cap">
-      <div class="card-body">
-        <h4 class="post-title">
-          <a (click)="redirectToActor(actor.id)">{{actor.name}}</a>
-        </h4>
-        <div class="post-by">
-          <i class="fa fa-star"></i> {{actor.popularity}} <span class="divider"> | </span> <i class="fa fa-film" style="padding-right: 2%;"></i>{{moviesParticipated(actor.known_for)}}
-        </div>
-        <div class="read-btn-container">
-          <a (click)="redirectToActor(actor.id)">View details <i class="fa fa-angle-double-right"></i></a>
+    <div class="wrap-cards">
+      <div class="card card-size" *ngFor="let actor of popularPeople | slice:0:8">
+        <img class="card-img-top" src="{{getImgUrl(actor.profile_path)}}" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="post-title">
+            <a (click)="redirectToActor(actor.id)">{{actor.name}}</a>
+          </h4>
+          <div class="post-by">
+            <i class="fa fa-star"></i> {{actor.popularity}} <span class="divider"> | </span> <i class="fa fa-film" style="padding-right: 2%;"></i>{{moviesParticipated(actor.known_for)}}
+          </div>
+          <div class="read-btn-container">
+            <a (click)="redirectToActor(actor.id)">View details <i class="fa fa-angle-double-right"></i></a>
+          </div>
         </div>
       </div>
     </div>

@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { API_KEY } from "../../app.key";
-import { Observable } from "rxjs";
-import { Http } from "@angular/http";
-import "rxjs/add/operator/map";
+import { Injectable } from '@angular/core';
+import { API_KEY } from '../../app.key';
+import { Observable } from 'rxjs';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class ActorsService {
   /*Api key david*/
@@ -24,7 +24,8 @@ export class ActorsService {
       .get(`${this.baseURL}${popular}api_key=${this.apiKey}`)
       .map(response => {
         return response.json().results;
-      }).catch(this.errorHandler);
+      })
+      .catch(this.errorHandler);
   }
 
   actorsMovieCredits(id: string): Observable<any> {
@@ -33,7 +34,8 @@ export class ActorsService {
       .get(`${this.baseURL}${id}${credits}api_key=${this.apiKey}`)
       .map(response => {
         return response.json().results;
-      }).catch(this.errorHandler);
+      })
+      .catch(this.errorHandler);
   }
 
   private errorHandler(error: Response) {
