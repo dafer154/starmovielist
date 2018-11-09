@@ -5,8 +5,8 @@
       <div *ngIf='resultDetailMovie.release_date'><label>Release Date: </label>{{resultDetailMovie.release_date}}</div>
       <div *ngIf='resultDetailMovie.genres'><label>Genres: </label><span *ngFor="let genre of resultDetailMovie.genres; let isLast=last">{{genre.name}}{{isLast
           ? '' : ', '}}</span></div>
-      <div *ngIf='resultDetailMovie.budget'><label>Budget: </label>{{resultDetailMovie.budget | currency:'USD':true:'4.0-2'}}</div>
-      <div *ngIf='resultDetailMovie.revenue'><label>Box office: </label>{{resultDetailMovie.revenue | currency:'USD':true:'4.0-2'}}</div>
+      <div *ngIf='resultDetailMovie.budget'><label>Budget: </label>{{resultDetailMovie.budget | currency:'USD':'symbol':'4.0-2'}}</div>
+      <div *ngIf='resultDetailMovie.revenue'><label>Box office: </label>{{resultDetailMovie.revenue | currency:'USD':'symbol':'4.0-2'}}</div>
     </div>
 
     <div class="col-sm-8">

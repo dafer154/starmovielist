@@ -25,14 +25,14 @@ export class HomeComponent implements OnInit {
   }
 
   getTrendingWeek() {
-    this.homeService.trendingTopicWeek().subscribe(response => {
-      this.trendingTopicMovies = response;
+    this.homeService.trendingTopicWeek().subscribe((data: any) => {
+      this.trendingTopicMovies = data.results;
     });
   }
 
   getPopularPeople() {
-    this.homeService.popularPeople().subscribe(response => {
-      this.popularPeople = response;
+    this.homeService.popularPeople().subscribe((data: any) => {
+      this.popularPeople = data.results;
     });
   }
 

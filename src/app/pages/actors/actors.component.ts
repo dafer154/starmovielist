@@ -27,17 +27,17 @@ export class ActorsComponent implements OnInit {
   }
 
   getPopularPeople() {
-    this.actorsService.popularPeople().subscribe(response => {
-      this.people = response;
+    this.actorsService.popularPeople().subscribe((data: any) => {
+      this.people = data.results;
       this.current = 'Popular';
     });
   }
 
   searchActors($event) {
     const query = $event.target.value;
-    this.searchService.searchActor(query).subscribe(response => {
-      this.people = response;
-      this.totalResult = response.length;
+    this.searchService.searchActor(query).subscribe((data: any) => {
+      this.people = data.results;
+      this.totalResult = data.results.length;
       this.current = 'Search';
       if (this.totalResult !== 0) {
         this.viewResults = true;

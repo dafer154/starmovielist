@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API_KEY } from '../../app.key';
 import { Observable } from 'rxjs';
-import { Http } from '@angular/http';
+import { HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -16,15 +16,11 @@ export class ActorsService {
 
   baseURL = 'https://api.themoviedb.org/3/person/';
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   popularPeople(): Observable<any> {
     const popular = 'popular?';
-    return this.http
-      .get(`${this.baseURL}${popular}api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json().results;
-      })
+    return this.http.get(`${this.baseURL}${popular}api_key=${this.apiKey}`)
       .catch(this.errorHandler);
   }
 
@@ -32,9 +28,6 @@ export class ActorsService {
     const credits = '/movie_credits?';
     return this.http
       .get(`${this.baseURL}${id}${credits}api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json().results;
-      })
       .catch(this.errorHandler);
   }
 

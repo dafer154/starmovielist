@@ -28,41 +28,40 @@ export class MoviesComponent implements OnInit {
   }
 
   getNowPlayingMovies() {
-    this.moviesService.nowPlayingMovies().subscribe(response => {
+    this.moviesService.nowPlayingMovies().subscribe((data: any) => {
       this.current = 'Now playing';
-      this.movies = response;
+      this.movies = data.results;
     });
   }
 
   getPopularMovies() {
-    this.moviesService.popularMovies().subscribe(response => {
-      this.movies = response;
+    this.moviesService.popularMovies().subscribe((data: any) => {
+      this.movies = data.results;
       this.current = 'Popular';
     });
   }
 
   getTopRatedMovies() {
-    this.moviesService.topRatedMovies().subscribe(response => {
-      this.movies = response;
+    this.moviesService.topRatedMovies().subscribe((data: any) => {
+      this.movies = data.results;
       this.current = 'Top rated';
     });
   }
 
   getUpComingMovies() {
-    this.moviesService.upComingMovies().subscribe(response => {
-      this.movies = response;
+    this.moviesService.upComingMovies().subscribe((data: any) => {
+      this.movies = data.results;
       this.current = 'Up coming';
     });
   }
 
   //Search movies
-
   searchMovies($event) {
     const query = $event.target.value;
-    this.searchService.searchMovie(query).subscribe(response => {
-      this.movies = response;
+    this.searchService.searchMovie(query).subscribe((data: any) => {
+      this.movies = data.results;
       this.current = 'Search';
-      this.totalResult = response.length;
+      this.totalResult = data.results.length;
       if (this.totalResult !== 0) {
         this.viewResults = true;
       }

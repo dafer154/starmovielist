@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API_KEY } from '../../app.key';
 import { Observable } from 'rxjs';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -16,15 +16,12 @@ export class MoviesService {
 
   baseURL = 'https://api.themoviedb.org/3/movie/';
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   nowPlayingMovies(): Observable<any> {
     const latest = 'now_playing?';
     return this.http
       .get(`${this.baseURL}${latest}api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json().results;
-      })
       .catch(this.errorHandler);
   }
 
@@ -32,9 +29,6 @@ export class MoviesService {
     const popular = 'popular?';
     return this.http
       .get(`${this.baseURL}${popular}api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json().results;
-      })
       .catch(this.errorHandler);
   }
 
@@ -42,9 +36,6 @@ export class MoviesService {
     const top_rated = 'top_rated?';
     return this.http
       .get(`${this.baseURL}${top_rated}api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json().results;
-      })
       .catch(this.errorHandler);
   }
 
@@ -52,9 +43,6 @@ export class MoviesService {
     const upcoming = 'upcoming?';
     return this.http
       .get(`${this.baseURL}${upcoming}api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json().results;
-      })
       .catch(this.errorHandler);
   }
 

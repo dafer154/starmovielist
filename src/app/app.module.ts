@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+//HttpClient
+import { HttpClientModule } from '@angular/common/http';
 
 /* File routing */
 import { AppRoutingModule } from './app-routing.module';
@@ -48,7 +50,7 @@ import {SafePipe} from './pipes/safe.pipe';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot()
   ],

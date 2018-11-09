@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API_KEY } from '../../app.key';
 import { Observable } from 'rxjs';
-import { Http, Headers } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -16,14 +16,11 @@ export class MovieDetailService {
 
   baseURL = 'https://api.themoviedb.org/3/movie';
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   detailMovie(idMovie: string): Observable<any> {
     return this.http
       .get(`${this.baseURL}/${idMovie}?api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json();
-      })
       .catch(this.errorHandler);
   }
 
@@ -31,9 +28,6 @@ export class MovieDetailService {
     const videoUrl = '/videos';
     return this.http
       .get(`${this.baseURL}/${idMovie}${videoUrl}?api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json();
-      })
       .catch(this.errorHandler);
   }
 
@@ -41,9 +35,6 @@ export class MovieDetailService {
     const recomend = '/recommendations';
     return this.http
       .get(`${this.baseURL}/${idMovie}${recomend}?api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json();
-      })
       .catch(this.errorHandler);
   }
 
@@ -51,9 +42,6 @@ export class MovieDetailService {
     const credits = '/credits';
     return this.http
       .get(`${this.baseURL}/${idMovie}${credits}?api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json();
-      })
       .catch(this.errorHandler);
   }
 
@@ -61,9 +49,6 @@ export class MovieDetailService {
     const images = '/images';
     return this.http
       .get(`${this.baseURL}/${idMovie}${images}?api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json();
-      })
       .catch(this.errorHandler);
   }
 

@@ -26,8 +26,8 @@ export class PeopleDetailComponent implements OnInit {
     this.route.params.subscribe((param: any) => {
       const id = param['id'];
       this.peopleDetailService.getDetailPerson(id).subscribe(
-        response => {
-          this.resultDetailPerson = response;
+        (data: any) => {
+          this.resultDetailPerson = data;
         },
         err => {
           // If movie detail return error, raise 404
@@ -35,8 +35,8 @@ export class PeopleDetailComponent implements OnInit {
         }
       );
       this.peopleDetailService.getImagesPeople(id).subscribe(
-        response => {
-          this.imagesPerson = response.profiles;
+        (data: any) => {
+          this.imagesPerson = data.profiles;
         },
         err => {
           // If movie videos return error, raise 404
@@ -44,8 +44,8 @@ export class PeopleDetailComponent implements OnInit {
         }
       );
       this.peopleDetailService.getMovieCreditsPerson(id).subscribe(
-        response => {
-          this.movieCreditsPerson = response.cast;
+        (data: any) => {
+          this.movieCreditsPerson = data.cast;
         },
         err => {
           // If movie videos return error, raise 404

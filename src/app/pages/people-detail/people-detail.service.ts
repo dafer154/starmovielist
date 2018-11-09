@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API_KEY } from '../../app.key';
 import { Observable } from 'rxjs';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -17,14 +17,11 @@ export class PeopleDetailService {
 
   baserUrlCredit = 'https://api.themoviedb.org/3/credit';
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
   getDetailPerson(idActor: string): Observable<any> {
     return this.http
       .get(`${this.baseURL}/${idActor}?api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json();
-      })
       .catch(this.errorHandler);
   }
 
@@ -32,9 +29,6 @@ export class PeopleDetailService {
     const credits = '/movie_credits';
     return this.http
       .get(`${this.baseURL}/${idActor}${credits}?api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json();
-      })
       .catch(this.errorHandler);
   }
 
@@ -42,18 +36,12 @@ export class PeopleDetailService {
     const images = '/images';
     return this.http
       .get(`${this.baseURL}/${idActor}${images}?api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json();
-      })
       .catch(this.errorHandler);
   }
 
   getCreditActorMovie(idCredit: string): Observable<any> {
     return this.http
       .get(`${this.baserUrlCredit}/${idCredit}?api_key=${this.apiKey}`)
-      .map(response => {
-        return response.json();
-      })
       .catch(this.errorHandler);
   }
 

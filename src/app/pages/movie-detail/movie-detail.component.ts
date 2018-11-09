@@ -26,8 +26,8 @@ export class MovieDetailComponent implements OnInit {
     this.route.params.subscribe((param: any) => {
       const id = param['id'];
       this.movieDetailService.detailMovie(id).subscribe(
-        response => {
-          this.resultDetailMovie = response;
+        (data: {}) => {
+          this.resultDetailMovie = data;
         },
         err => {
           // If movie detail return error, raise 404
@@ -35,8 +35,8 @@ export class MovieDetailComponent implements OnInit {
         }
       );
       this.movieDetailService.getMovieVideos(id).subscribe(
-        response => {
-          this.movie = response.results[0];
+        (data: any) => {
+          this.movie = data.results[0];
         },
         err => {
           // If movie videos return error, raise 404
@@ -44,8 +44,9 @@ export class MovieDetailComponent implements OnInit {
         }
       );
       this.movieDetailService.getRecommendationsMovie(id).subscribe(
-        response => {
-          this.recommendationsMovie = response.results;
+        (data: any) => {
+          this.recommendationsMovie = data.results;
+
         },
         err => {
           // If movie videos return error, raise 404
@@ -53,16 +54,16 @@ export class MovieDetailComponent implements OnInit {
         }
       );
       this.movieDetailService.getCreditsMovie(id).subscribe(
-        response => {
-          this.movieCredits = response.cast;
+        (data: any) => {
+          this.movieCredits = data.cast;
         },
         err => {
           // If movie videos return error, raise 404
           this.router.navigate(['/404']);
         }
       );
-      this.movieDetailService.getImages(id).subscribe(response => {
-        this.imagesMovie = response.backdrops;
+      this.movieDetailService.getImages(id).subscribe((data: any) => {
+        this.imagesMovie = data.backdrops;
       });
     });
   }
